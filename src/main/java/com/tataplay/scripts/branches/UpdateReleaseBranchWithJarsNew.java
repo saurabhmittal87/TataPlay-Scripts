@@ -14,24 +14,24 @@ public class UpdateReleaseBranchWithJarsNew {
     private static final Map<String, String> jars = new HashMap<>();
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
-    private static final Environment environment = Environment.UAT;
-//    private static final String RELEASE_BRANCH_NAME = "release-13-05-2025-E";
-        private static final String RELEASE_BRANCH_NAME = "uat";
+    private static final Environment environment = Environment.PRODUCTION;
+    private static final String RELEASE_BRANCH_NAME = "release-10-06-2025-E";
+//        private static final String RELEASE_BRANCH_NAME = "uat";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"));
 
     static {
-//        jars.put("common-constants", "5.21.6-UAT-SNAPSHOT");
-        jars.put("subscriber-db-util", "7.9.9-UAT-SNAPSHOT");
-        jars.put("common-db-tsf", "4.7.1-UAT-SNAPSHOT");
-//        jars.put("common-sql-domains", "14.4.1");
+        jars.put("common-constants", "14.16.5");
+        jars.put("common-pojo", "16.0.1");
+        jars.put("common-sql-domains", "14.4.9");
+        jars.put("third-party-utils", "2.6.8");
+        jars.put("common-db-tsf", "2.3.0");
+//        jars.put("subscriber-db-util", "7.3.9");
 //        jars.put("content-db-util", "4.0.7-UAT-SNAPSHOT");
-//        jars.put("common-pojo", "15.9.6");
 //        jars.put("cache", "13.2.0");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
-//        jars.put("third-party-utils", "2.6.7");
 //        jars.put("mm-domains", "8.2.4");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
 //        jars.put("transaction-logger", "4.5.7");
