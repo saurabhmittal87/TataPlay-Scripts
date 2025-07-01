@@ -14,7 +14,6 @@ public class UpdateReleaseBranchWithJars {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.UAT;
-//        private static final String RELEASE_BRANCH_NAME = "release-13-05-2025-E";
     private static final String RELEASE_BRANCH_NAME = "uat";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
@@ -22,13 +21,14 @@ public class UpdateReleaseBranchWithJars {
             "tatasky-sms-connector", List.of("cms-ui"));
 
     static {
-//        jars.put("subscriber-db-util", "7.3.9");
-//        jars.put("common-sql-domains", "14.4.1");
-        jars.put("common-db-tsf", "4.8.7-UAT-SNAPSHOT");
-//        jars.put("common-constants", "5.21.5-UAT-SNAPSHOT");
+        jars.put("common-constants", "5.22.4-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util", "9.4.9-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "8.2.1-UAT-SNAPSHOT");
+//        jars.put("common-pojo", "7.7.9-UAT-SNAPSHOT");
+//        jars.put("common-sql-domains", "6.1.3-UAT-SNAPSHOT");
+//        jars.put("cache", "3.1.5-UAT-SNAPSHOT");
+//        jars.put("common-db-tsf", "4.9.1-UAT-SNAPSHOT");
 //        jars.put("content-db-util", "4.0.7-UAT-SNAPSHOT");
-//        jars.put("common-pojo", "15.9.6");
-//        jars.put("cache", "13.2.0");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
 //        jars.put("third-party-utils", "2.6.7");
 //        jars.put("mm-domains", "8.2.4");
@@ -36,7 +36,6 @@ public class UpdateReleaseBranchWithJars {
 //        jars.put("transaction-logger", "4.5.7");
 //        jars.put("partner-db-entities", "0.2.0");
 //        jars.put("pubnub-router-client", "1.3.3");
-//        jars.put("homescreen-db-util", "9.6.6");
 //        jars.put("cache-manager", "1.5.1-UAT-SNAPSHOT");
 //        jars.put("common-event-domains", "0.3.5-UAT-SNAPSHOT");
 //        jars.put("androidStick-thirdParty", "4.3.4-UAT-SNAPSHOT");
