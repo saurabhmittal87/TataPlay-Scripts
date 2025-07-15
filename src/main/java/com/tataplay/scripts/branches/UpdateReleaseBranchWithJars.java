@@ -21,9 +21,9 @@ public class UpdateReleaseBranchWithJars {
             "tatasky-sms-connector", List.of("cms-ui"));
 
     static {
-        jars.put("common-constants", "5.22.4-UAT-SNAPSHOT");
-        jars.put("homescreen-db-util", "9.4.9-UAT-SNAPSHOT");
-//        jars.put("subscriber-db-util", "8.2.1-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util", " 9.6.1-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "8.2.7-UAT-SNAPSHOT");
+//        jars.put("common-constants", "5.22.8-UAT-SNAPSHOT");
 //        jars.put("common-pojo", "7.7.9-UAT-SNAPSHOT");
 //        jars.put("common-sql-domains", "6.1.3-UAT-SNAPSHOT");
 //        jars.put("cache", "3.1.5-UAT-SNAPSHOT");
