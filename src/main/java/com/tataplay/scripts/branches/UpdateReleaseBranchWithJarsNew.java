@@ -232,7 +232,7 @@ public class UpdateReleaseBranchWithJarsNew {
             boolean contentUpdated = false;
             Matcher matcher = TataPlayUtil.pattern_most_used.matcher(text);
             if (matcher.find()) {
-                String type = matcher.group(1);
+                String initialPart = matcher.group(1);
                 String dependencyProvider = matcher.group(2);
                 String dependencyName = matcher.group(3);
                 String currentDependencyVersion = matcher.group(4);
@@ -240,9 +240,8 @@ public class UpdateReleaseBranchWithJarsNew {
                 String newDependencyVersion = jars.get(dependencyName);
                 boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
                 System.out.println(dependencyName + "-" + applicationName);
-                System.out.println(skipUpdate);
-                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = type + "group: 'tv.videoready', name: '" + dependencyName + "', version: '" + newDependencyVersion + "')" + (StringUtils.isBlank(remainingPart) ? "" : remainingPart);
+                if (!skipUpdate && dependencyProvider.equals(TataPlayUtil.videoReadyGroup) && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
+                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + (StringUtils.isBlank(remainingPart) ? "" : remainingPart);
                     buildDotGradleFileContent.append(newText).append("\n");
                     contentUpdated = true;
                     impactedApplications.add(application);
@@ -250,21 +249,21 @@ public class UpdateReleaseBranchWithJarsNew {
             }
 
 
-            matcher = TataPlayUtil.pattern_less_used.matcher(text);
-            if (matcher.find()) {
-                String start = matcher.group(1);
-                String dependencyProvider = matcher.group(2);
-                String dependencyName = matcher.group(3);
-                String currentDependencyVersion = matcher.group(4);
-                String newDependencyVersion = jars.get(dependencyName);
-                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
-                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = start + "'" + dependencyProvider + ":" + dependencyName + ":" + newDependencyVersion + "'";
-                    buildDotGradleFileContent.append(newText).append("\n");
-                    contentUpdated = true;
-                    impactedApplications.add(application);
-                }
-            }
+//            matcher = TataPlayUtil.pattern_less_used.matcher(text);
+//            if (matcher.find()) {
+//                String start = matcher.group(1);
+//                String dependencyProvider = matcher.group(2);
+//                String dependencyName = matcher.group(3);
+//                String currentDependencyVersion = matcher.group(4);
+//                String newDependencyVersion = jars.get(dependencyName);
+//                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
+//                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
+//                    String newText = start + "'" + dependencyProvider + ":" + dependencyName + ":" + newDependencyVersion + "'";
+//                    buildDotGradleFileContent.append(newText).append("\n");
+//                    contentUpdated = true;
+//                    impactedApplications.add(application);
+//                }
+//            }
             if (!contentUpdated) {
                 buildDotGradleFileContent.append(text).append("\n");
             }

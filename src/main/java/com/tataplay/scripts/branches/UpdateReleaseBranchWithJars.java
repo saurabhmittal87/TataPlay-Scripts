@@ -21,9 +21,9 @@ public class UpdateReleaseBranchWithJars {
             "tatasky-sms-connector", List.of("cms-ui"));
 
     static {
-        jars.put("homescreen-db-util", " 9.6.1-UAT-SNAPSHOT");
+//        jars.put("homescreen-db-util", " 9.6.1-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util", "8.2.7-UAT-SNAPSHOT");
-//        jars.put("common-constants", "5.22.8-UAT-SNAPSHOT");
+        jars.put("common-constants", "5.24.9-UAT-SNAPSHOT");
 //        jars.put("common-pojo", "7.7.9-UAT-SNAPSHOT");
 //        jars.put("common-sql-domains", "6.1.3-UAT-SNAPSHOT");
 //        jars.put("cache", "3.1.5-UAT-SNAPSHOT");
@@ -200,7 +200,7 @@ public class UpdateReleaseBranchWithJars {
             boolean contentUpdated = false;
             Matcher matcher = TataPlayUtil.pattern_most_used.matcher(text);
             if (matcher.find()) {
-                String type = matcher.group(1);
+                String initialPart = matcher.group(1);
                 String dependencyProvider = matcher.group(2);
                 String dependencyName = matcher.group(3);
                 String currentDependencyVersion = matcher.group(4);
@@ -208,9 +208,8 @@ public class UpdateReleaseBranchWithJars {
                 String newDependencyVersion = jars.get(dependencyName);
                 boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
                 System.out.println(dependencyName + "-" + applicationName);
-                System.out.println(skipUpdate);
-                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = type + "group: 'tv.videoready', name: '" + dependencyName + "', version: '" + newDependencyVersion + "')" + (StringUtils.isBlank(remainingPart) ? "" : remainingPart);
+                if (!skipUpdate && dependencyProvider.equals(TataPlayUtil.videoReadyGroup) && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
+                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + (StringUtils.isBlank(remainingPart) ? "" : remainingPart);
                     buildDotGradleFileContent.append(newText).append("\n");
                     contentUpdated = true;
                     impactedApplications.add(application);
@@ -218,21 +217,21 @@ public class UpdateReleaseBranchWithJars {
             }
 
 
-            matcher = TataPlayUtil.pattern_less_used.matcher(text);
-            if (matcher.find()) {
-                String start = matcher.group(1);
-                String dependencyProvider = matcher.group(2);
-                String dependencyName = matcher.group(3);
-                String currentDependencyVersion = matcher.group(4);
-                String newDependencyVersion = jars.get(dependencyName);
-                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
-                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = start + "'" + dependencyProvider + ":" + dependencyName + ":" + newDependencyVersion + "'";
-                    buildDotGradleFileContent.append(newText).append("\n");
-                    contentUpdated = true;
-                    impactedApplications.add(application);
-                }
-            }
+//            matcher = TataPlayUtil.pattern_less_used.matcher(text);
+//            if (matcher.find()) {
+//                String start = matcher.group(1);
+//                String dependencyProvider = matcher.group(2);
+//                String dependencyName = matcher.group(3);
+//                String currentDependencyVersion = matcher.group(4);
+//                String newDependencyVersion = jars.get(dependencyName);
+//                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
+//                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
+//                    String newText = start + "'" + dependencyProvider + ":" + dependencyName + ":" + newDependencyVersion + "'";
+//                    buildDotGradleFileContent.append(newText).append("\n");
+//                    contentUpdated = true;
+//                    impactedApplications.add(application);
+//                }
+//            }
             if (!contentUpdated) {
                 buildDotGradleFileContent.append(text).append("\n");
             }

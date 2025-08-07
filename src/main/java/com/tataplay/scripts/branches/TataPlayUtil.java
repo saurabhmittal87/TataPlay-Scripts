@@ -14,14 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class TataPlayUtil {
 
-    public static final String regex_most_used = "(.*)group:[ ]*'(.*)',[ ]*name:[ ]*'(.*)',[ ]*version:[ ]*'(.*)'\\)(.*)";
-    public static final String regex_less_used = "(.*)'(.*):(.*):(.*)'";
+    public static final String regex_most_used = "(.*)group.*'(.*)'.*name.*'(.*)'.*version.*'(.*)'(.*)";
+//    public static final String regex_less_used = "(.*)'(.*):(.*):(.*)'";
     public static final Pattern pattern_most_used = Pattern.compile(regex_most_used);
-    public static final Pattern pattern_less_used = Pattern.compile(regex_less_used);
+//    public static final Pattern pattern_less_used = Pattern.compile(regex_less_used);
     public static String PROJECT_BASE_DIRECTORY = "/home/saurabh/projects/tataplay/";
-
-    public static String masterBranch = "master";
-    public static String uatBranch = "uat";
+    public static String videoReadyGroup = "tv.videoready";
     public static Map<String, Application> uniqueServices = new HashMap<>();
 
     public static Map<String, Map<String, List<Application>>> fetchLatestDependencyMap(Environment environment, List<String> applicationsToConsider) throws Exception {
@@ -92,19 +90,19 @@ public class TataPlayUtil {
                 updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
             }
 
-            matcher = pattern_less_used.matcher(text);
-            if (matcher.find()) {
-                String dependencyProvider = matcher.group(2);
-                String dependencyName = matcher.group(3);
-                String dependencyVersion = matcher.group(4);
-                updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
-            }
+//            matcher = pattern_less_used.matcher(text);
+//            if (matcher.find()) {
+//                String dependencyProvider = matcher.group(2);
+//                String dependencyName = matcher.group(3);
+//                String dependencyVersion = matcher.group(4);
+//                updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
+//            }
         }
         buildScanner.close();
     }
 
     private static void updateDependencyTree(String dependencyProvider, String dependencyName, String dependencyVersion, Map<String, Map<String, List<Application>>> dependencyTree, Application application) {
-        if (dependencyProvider.equals("tv.videoready")) {
+        if (dependencyProvider.equals(videoReadyGroup)) {
             Map<String, List<Application>> dependencyApplications = getDependencyApplicationsMap(dependencyName, dependencyTree);
             List<Application> applications = getApplicationList(dependencyVersion, dependencyApplications);
             applications.add(application);
