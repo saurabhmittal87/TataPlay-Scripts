@@ -18,12 +18,12 @@ public class UpdateReleaseBranchWithJars {
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
-            "tatasky-sms-connector", List.of("cms-ui"));
+            "tatasky-sms-connector", List.of("cms-ui"),"mm-domains", List.of("clean-up-utility"));
 
     static {
 //        jars.put("homescreen-db-util", " 9.6.1-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util", "8.2.7-UAT-SNAPSHOT");
-        jars.put("common-constants", "5.24.9-UAT-SNAPSHOT");
+        jars.put("common-constants", "5.25.2-UAT-SNAPSHOT");
 //        jars.put("common-pojo", "7.7.9-UAT-SNAPSHOT");
 //        jars.put("common-sql-domains", "6.1.3-UAT-SNAPSHOT");
 //        jars.put("cache", "3.1.5-UAT-SNAPSHOT");
