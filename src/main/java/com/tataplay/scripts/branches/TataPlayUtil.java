@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 public class TataPlayUtil {
 
     public static final String regex_most_used = "(.*)group.*'(.*)'.*name.*'(.*)'.*version.*'(.*)'(.*)";
-//    public static final String regex_less_used = "(.*)'(.*):(.*):(.*)'";
+    public static final String regex_less_used = "(.*)'(.*):(.*):(.*)'(.*)";
     public static final Pattern pattern_most_used = Pattern.compile(regex_most_used);
-//    public static final Pattern pattern_less_used = Pattern.compile(regex_less_used);
+    public static final Pattern pattern_less_used = Pattern.compile(regex_less_used);
     public static String PROJECT_BASE_DIRECTORY = "/home/saurabh/projects/tataplay/";
     public static String videoReadyGroup = "tv.videoready";
     public static Map<String, Application> uniqueServices = new HashMap<>();
@@ -90,13 +90,13 @@ public class TataPlayUtil {
                 updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
             }
 
-//            matcher = pattern_less_used.matcher(text);
-//            if (matcher.find()) {
-//                String dependencyProvider = matcher.group(2);
-//                String dependencyName = matcher.group(3);
-//                String dependencyVersion = matcher.group(4);
-//                updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
-//            }
+            matcher = pattern_less_used.matcher(text);
+            if (matcher.find()) {
+                String dependencyProvider = matcher.group(2);
+                String dependencyName = matcher.group(3);
+                String dependencyVersion = matcher.group(4);
+                updateDependencyTree(dependencyProvider, dependencyName, dependencyVersion, dependencyTree, application);
+            }
         }
         buildScanner.close();
     }

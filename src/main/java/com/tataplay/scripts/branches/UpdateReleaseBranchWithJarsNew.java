@@ -163,56 +163,55 @@ public class UpdateReleaseBranchWithJarsNew {
         printResults(Runtime.getRuntime().exec("git pull origin " + RELEASE_BRANCH_NAME, null, project));
     }
 
+//    private static void pushReleaseBranch(Application projectName) throws IOException {
+//        File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + projectName.getParentService());
+//        printResults(Runtime.getRuntime().exec("git add build.gradle", null, project));
+//        System.out.println("cd " + project.getAbsolutePath());
+//        System.out.println("git reset HEAD");
+//        System.out.println("git add build.gradle");
+//        System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
+//        System.out.println("git push origin " + RELEASE_BRANCH_NAME);
+//    }
 
-    private static void pushReleaseBranch(Application projectName) throws IOException {
-        File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + projectName.getParentService());
-        printResults(Runtime.getRuntime().exec("git add build.gradle", null, project));
-        System.out.println("cd " + project.getAbsolutePath());
-        System.out.println("git reset HEAD");
-        System.out.println("git add build.gradle");
-        System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
-        System.out.println("git push origin " + RELEASE_BRANCH_NAME);
-    }
-
-    private static void pushReleaseBranch(Map<String, List<Application>> applicationMap) throws IOException {
-        for (String parentApplication : applicationMap.keySet()) {
-            List<Application> applications = applicationMap.get(parentApplication);
-            File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + applications.get(0).getParentService());
-            System.out.println("cd " + project.getAbsolutePath());
-            System.out.println("git reset HEAD");
-            for (Application application : applications) {
-                if (applications.size() > 1) {
-                    File subProject = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + application.getApplicationName());
-                    System.out.println("cd " + subProject.getAbsolutePath());
-                }
-                System.out.println("git add build.gradle");
-            }
-            System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
-            System.out.println("git push origin " + RELEASE_BRANCH_NAME);
-        }
-    }
-
-    private static Map<String, List<Application>> getApplicationMap() {
-        Map<String, List<Application>> applicationMap = new HashMap<>();
-        for (Application application : impactedApplications) {
-            String parentApplication = application.getParentService();
-            List<Application> applications = applicationMap.get(parentApplication);
-            if (Objects.isNull(applications)) {
-                applications = new ArrayList<>();
-            }
-            applications.add(application);
-            applicationMap.put(parentApplication, applications);
-        }
-        return applicationMap;
-    }
-
-    private String getReleaseBranchName(Application projectName, Environment environment) {
-        if (StringUtils.equals("ta-worker", projectName.getApplicationName())) {
-            return Util.getBranchName(projectName, environment);
-        } else {
-            return RELEASE_BRANCH_NAME;
-        }
-    }
+//    private static void pushReleaseBranch(Map<String, List<Application>> applicationMap) throws IOException {
+//        for (String parentApplication : applicationMap.keySet()) {
+//            List<Application> applications = applicationMap.get(parentApplication);
+//            File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + applications.get(0).getParentService());
+//            System.out.println("cd " + project.getAbsolutePath());
+//            System.out.println("git reset HEAD");
+//            for (Application application : applications) {
+//                if (applications.size() > 1) {
+//                    File subProject = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + application.getApplicationName());
+//                    System.out.println("cd " + subProject.getAbsolutePath());
+//                }
+//                System.out.println("git add build.gradle");
+//            }
+//            System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
+//            System.out.println("git push origin " + RELEASE_BRANCH_NAME);
+//        }
+//    }
+//
+//    private static Map<String, List<Application>> getApplicationMap() {
+//        Map<String, List<Application>> applicationMap = new HashMap<>();
+//        for (Application application : impactedApplications) {
+//            String parentApplication = application.getParentService();
+//            List<Application> applications = applicationMap.get(parentApplication);
+//            if (Objects.isNull(applications)) {
+//                applications = new ArrayList<>();
+//            }
+//            applications.add(application);
+//            applicationMap.put(parentApplication, applications);
+//        }
+//        return applicationMap;
+//    }
+//
+//    private String getReleaseBranchName(Application projectName, Environment environment) {
+//        if (StringUtils.equals("ta-worker", projectName.getApplicationName())) {
+//            return Util.getBranchName(projectName, environment);
+//        } else {
+//            return RELEASE_BRANCH_NAME;
+//        }
+//    }
 
     public static void printResults(Process process) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -239,31 +238,30 @@ public class UpdateReleaseBranchWithJarsNew {
                 String remainingPart = matcher.group(5);
                 String newDependencyVersion = jars.get(dependencyName);
                 boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
-                System.out.println(dependencyName + "-" + applicationName);
                 if (!skipUpdate && dependencyProvider.equals(TataPlayUtil.videoReadyGroup) && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + (StringUtils.isBlank(remainingPart) ? "" : remainingPart);
+                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + StringUtils.defaultString(remainingPart);
                     buildDotGradleFileContent.append(newText).append("\n");
                     contentUpdated = true;
                     impactedApplications.add(application);
                 }
             }
 
-
-//            matcher = TataPlayUtil.pattern_less_used.matcher(text);
-//            if (matcher.find()) {
-//                String start = matcher.group(1);
-//                String dependencyProvider = matcher.group(2);
-//                String dependencyName = matcher.group(3);
-//                String currentDependencyVersion = matcher.group(4);
-//                String newDependencyVersion = jars.get(dependencyName);
-//                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
-//                if (!skipUpdate && dependencyProvider.equals("tv.videoready") && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-//                    String newText = start + "'" + dependencyProvider + ":" + dependencyName + ":" + newDependencyVersion + "'";
-//                    buildDotGradleFileContent.append(newText).append("\n");
-//                    contentUpdated = true;
-//                    impactedApplications.add(application);
-//                }
-//            }
+            matcher = TataPlayUtil.pattern_less_used.matcher(text);
+            if (matcher.find()) {
+                String initialPart = matcher.group(1);
+                String dependencyProvider = matcher.group(2);
+                String dependencyName = matcher.group(3);
+                String currentDependencyVersion = matcher.group(4);
+                String remainingPart = matcher.group(5);
+                String newDependencyVersion = jars.get(dependencyName);
+                boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
+                if (!skipUpdate && dependencyProvider.equals(TataPlayUtil.videoReadyGroup) && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
+                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + StringUtils.defaultString(remainingPart);
+                    buildDotGradleFileContent.append(newText).append("\n");
+                    contentUpdated = true;
+                    impactedApplications.add(application);
+                }
+            }
             if (!contentUpdated) {
                 buildDotGradleFileContent.append(text).append("\n");
             }
