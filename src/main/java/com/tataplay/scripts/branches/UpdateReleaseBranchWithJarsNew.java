@@ -15,7 +15,7 @@ public class UpdateReleaseBranchWithJarsNew {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-26-08-2025-E";
+    private static final String RELEASE_BRANCH_NAME = "release-01-09-2025-E";
     //        private static final String RELEASE_BRANCH_NAME = "uat";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
@@ -23,13 +23,13 @@ public class UpdateReleaseBranchWithJarsNew {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("common-constants", "14.17.9");
-        jars.put("common-pojo", "16.1.7");
-        jars.put("common-sql-domains", "14.6.0");
-        jars.put("common-db-tsf", "2.3.5");
-        jars.put("partner-db-entities", "0.2.1");
-        jars.put("subscriber-db-util", "7.4.9");
-        jars.put("pubnub-router-client", "1.4.1");
+        jars.put("subscriber-db-util", "7.5.0");
+//        jars.put("common-constants", "14.17.9");
+//        jars.put("common-pojo", "16.1.7");
+//        jars.put("common-sql-domains", "14.6.0");
+//        jars.put("common-db-tsf", "2.3.5");
+//        jars.put("partner-db-entities", "0.2.1");
+//        jars.put("pubnub-router-client", "1.4.1");
 //        jars.put("mm-domains", "8.3.1");
 //        jars.put("homescreen-db-util", "9.8.3");
 //        jars.put("content-db-util", "8.4.7");
