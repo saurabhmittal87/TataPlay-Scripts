@@ -18,10 +18,12 @@ public class UpdateReleaseBranchWithJars {
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
-            "tatasky-sms-connector", List.of("cms-ui"),"mm-domains", List.of("clean-up-utility"));
+            "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("subscriber-db-util", "8.7.3-UAT-SNAPSHOT");
+        jars.put("mm-domains", "3.6.7-UAT-SNAPSHOT");
+        jars.put("third-party-utils", "0.7.5-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "8.9.8-UAT-SNAPSHOT");
 //        jars.put("common-constants", "5.25.2-UAT-SNAPSHOT");
 //        jars.put("common-pojo", "7.8.22-UAT-SNAPSHOT");
 //        jars.put("common-db-tsf", "5.0.0-UAT-SNAPSHOT");
@@ -30,8 +32,6 @@ public class UpdateReleaseBranchWithJars {
 //        jars.put("content-db-util", "4.2.7-UAT-SNAPSHOT");
 //        jars.put("homescreen-db-util", "9.9.1-UAT-SNAPSHOT");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
-//        jars.put("third-party-utils", "2.6.7");
-//        jars.put("mm-domains", "8.2.4");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
 //        jars.put("transaction-logger", "4.5.7");
 //        jars.put("partner-db-entities", "0.2.0");

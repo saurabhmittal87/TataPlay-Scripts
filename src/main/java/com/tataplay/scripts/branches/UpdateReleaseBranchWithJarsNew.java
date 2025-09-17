@@ -15,7 +15,7 @@ public class UpdateReleaseBranchWithJarsNew {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-01-09-2025-E";
+    private static final String RELEASE_BRANCH_NAME = "release-01-09-2025-EE";
     //        private static final String RELEASE_BRANCH_NAME = "uat";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
