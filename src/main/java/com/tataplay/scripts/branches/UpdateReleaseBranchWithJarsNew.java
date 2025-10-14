@@ -10,31 +10,29 @@ import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 
 public class UpdateReleaseBranchWithJarsNew {
-    //    private static final Pattern pattern = Pattern.compile(TataPlayUtil.regex_most_used);
     private static final Map<String, String> jars = new HashMap<>();
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-01-09-2025-EE";
-    //        private static final String RELEASE_BRANCH_NAME = "uat";
+    private static final String RELEASE_BRANCH_NAME = "release-30-09-2025-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("subscriber-db-util", "7.5.0");
-//        jars.put("common-constants", "14.17.9");
-//        jars.put("common-pojo", "16.1.7");
-//        jars.put("common-sql-domains", "14.6.0");
-//        jars.put("common-db-tsf", "2.3.5");
+        jars.put("subscriber-db-util", "7.5.2");
+//        jars.put("third-party-utils", "2.7.4");
+//        jars.put("mm-domains", "8.3.3");
+//        jars.put("common-sql-domains", "14.6.6");
+//        jars.put("common-pojo", "16.2.8");
+//        jars.put("common-constants", "14.19.0");
+//        jars.put("common-db-tsf", "2.3.8");
+//        jars.put("homescreen-db-util", "9.9.3");
 //        jars.put("partner-db-entities", "0.2.1");
 //        jars.put("pubnub-router-client", "1.4.1");
-//        jars.put("mm-domains", "8.3.1");
-//        jars.put("homescreen-db-util", "9.8.3");
 //        jars.put("content-db-util", "8.4.7");
 //        jars.put("transaction-logger", "4.7.1");
-//        jars.put("third-party-utils", "2.6.8");
 //        jars.put("cache", "13.2.0");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
