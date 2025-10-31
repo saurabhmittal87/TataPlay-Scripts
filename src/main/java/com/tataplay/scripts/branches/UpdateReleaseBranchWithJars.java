@@ -21,16 +21,16 @@ public class UpdateReleaseBranchWithJars {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("subscriber-db-util", "9.0.8-UAT-SNAPSHOT");
+        jars.put("mm-domains", "3.7.6-UAT-SNAPSHOT");
+//        jars.put("common-db-tsf", "5.3.0-UAT-SNAPSHOT");
+//        jars.put("common-sql-domains", "6.8.7-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "9.1.9-UAT-SNAPSHOT");
 //        jars.put("common-constants", "5.26.2-UAT-SNAPSHOT");
-//        jars.put("mm-domains", "3.7.4-UAT-SNAPSHOT");
 //        jars.put("cache", "3.3.7-UAT-SNAPSHOT");
 //        jars.put("content-db-util", "4.3.0-UAT-SNAPSHOT");
 //        jars.put("homescreen-db-util", "9.10.6-UAT-SNAPSHOT");
 //        jars.put("third-party-utils", "0.7.5-UAT-SNAPSHOT");
 //        jars.put("common-pojo", "7.8.22-UAT-SNAPSHOT");
-//        jars.put("common-db-tsf", "5.0.0-UAT-SNAPSHOT");
-//        jars.put("common-sql-domains", "6.4.2-UAT-SNAPSHOT");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
 //        jars.put("transaction-logger", "4.5.7");
