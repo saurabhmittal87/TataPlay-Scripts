@@ -14,18 +14,18 @@ public class UpdateReleaseBranchWithJarsNew {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-30-10-2025-E";
+    private static final String RELEASE_BRANCH_NAME = "release-03-11-2025-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("common-constants", "14.19.7");
-        jars.put("mm-domains", "8.3.5");
-        jars.put("cache", "13.3.2");
-        jars.put("content-db-util", "8.5.6");
-        jars.put("homescreen-db-util", "9.9.6");
+        jars.put("mm-domains", "8.3.6");
+//        jars.put("common-constants", "14.19.7");
+//        jars.put("cache", "13.3.2");
+//        jars.put("content-db-util", "8.5.6");
+//        jars.put("homescreen-db-util", "9.9.6");
 //        jars.put("common-db-tsf", "2.4.3");
 //        jars.put("common-sql-domains", "14.7.1");
 //        jars.put("common-pojo", "16.3.4");
