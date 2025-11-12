@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 
-public class UpdateReleaseBranchWithJars {
+public class UpdateBranchWithJarsUAT {
     private static final Map<String, String> jars = new HashMap<>();
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
@@ -21,10 +21,10 @@ public class UpdateReleaseBranchWithJars {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("subscriber-db-util", "9.3.2-UAT-SNAPSHOT");
+        jars.put("common-db-tsf", "5.3.1-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "9.3.2-UAT-SNAPSHOT");
 //        jars.put("common-constants", "5.27.0-UAT-SNAPSHOT");
 //        jars.put("mm-domains", "3.7.6-UAT-SNAPSHOT");
-//        jars.put("common-db-tsf", "5.4.0-UAT-SNAPSHOT");
 //        jars.put("common-sql-domains", "6.8.7-UAT-SNAPSHOT");
 //        jars.put("cache", "3.3.7-UAT-SNAPSHOT");
 //        jars.put("content-db-util", "4.3.0-UAT-SNAPSHOT");

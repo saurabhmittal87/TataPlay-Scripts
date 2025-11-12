@@ -9,33 +9,33 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
 
-public class UpdateReleaseBranchWithJarsNew {
+public class UpdateBranchWithJarsLIT {
     private static final Map<String, String> jars = new HashMap<>();
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
-    private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-11-11-2025-E";
+    private static final Environment environment = Environment.UAT_LIT;
+    private static final String RELEASE_BRANCH_NAME = "lit-uat";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("homescreen-db-util", "9.9.7");
-//        jars.put("common-constants", "14.19.9");
-//        jars.put("mm-domains", "8.3.6");
-//        jars.put("cache", "13.3.2");
-//        jars.put("content-db-util", "8.5.6");
-//        jars.put("common-db-tsf", "2.4.3");
-//        jars.put("common-sql-domains", "14.7.1");
-//        jars.put("common-pojo", "16.3.4");
-//        jars.put("subscriber-db-util", "7.5.2");
-//        jars.put("third-party-utils", "2.7.4");
-//        jars.put("partner-db-entities", "0.2.1");
-//        jars.put("pubnub-router-client", "1.4.1");
-//        jars.put("transaction-logger", "4.7.1");
+        jars.put("common-db-tsf", "5.3.1-UAT-SNAPSHOT");
+//        jars.put("subscriber-db-util", "9.3.2-UAT-SNAPSHOT");
+//        jars.put("common-constants", "5.27.0-UAT-SNAPSHOT");
+//        jars.put("mm-domains", "3.7.6-UAT-SNAPSHOT");
+//        jars.put("common-sql-domains", "6.8.7-UAT-SNAPSHOT");
+//        jars.put("cache", "3.3.7-UAT-SNAPSHOT");
+//        jars.put("content-db-util", "4.3.0-UAT-SNAPSHOT");
+//        jars.put("homescreen-db-util", "9.10.6-UAT-SNAPSHOT");
+//        jars.put("third-party-utils", "0.7.5-UAT-SNAPSHOT");
+//        jars.put("common-pojo", "7.8.22-UAT-SNAPSHOT");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
+//        jars.put("transaction-logger", "4.5.7");
+//        jars.put("partner-db-entities", "0.2.0");
+//        jars.put("pubnub-router-client", "1.3.3");
 //        jars.put("cache-manager", "1.5.1-UAT-SNAPSHOT");
 //        jars.put("common-event-domains", "0.3.5-UAT-SNAPSHOT");
 //        jars.put("androidStick-thirdParty", "4.3.4-UAT-SNAPSHOT");
@@ -67,39 +67,9 @@ public class UpdateReleaseBranchWithJarsNew {
     }
 
     private static void printPushCodeCommands() throws IOException {
-        Map<String, List<Application>> applicationMap = new HashMap<>();
         for (Application application : impactedApplications) {
-            String parentApplication = application.getParentService();
-            List<Application> applications = applicationMap.get(parentApplication);
-            if (CollectionUtils.isEmpty(applications)) {
-                applications = new ArrayList<>();
-            }
-            applications.add(application);
-            applicationMap.put(parentApplication, applications);
-
+            pushReleaseBranch(application);
         }
-        for (String parentApplication : applicationMap.keySet()) {
-            pushReleaseBranch(parentApplication, applicationMap.get(parentApplication));
-        }
-    }
-
-    private static void pushReleaseBranch(String parentApplication, List<Application> applications) {
-        File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + parentApplication);
-        System.out.println("cd " + project.getAbsolutePath());
-        System.out.println("git reset HEAD");
-        if (!CollectionUtils.isEmpty(applications)) {
-            if (applications.size() == 1) {
-                System.out.println("git add build.gradle");
-            } else {
-                for (Application application : applications) {
-                    System.out.println("git add " + application.getApplicationName() + "/build.gradle");
-                }
-            }
-        }
-
-        System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
-        System.out.println("git push origin " + RELEASE_BRANCH_NAME);
-
     }
 
     /**
@@ -161,15 +131,16 @@ public class UpdateReleaseBranchWithJarsNew {
         printResults(Runtime.getRuntime().exec("git pull origin " + RELEASE_BRANCH_NAME, null, project));
     }
 
-//    private static void pushReleaseBranch(Application projectName) throws IOException {
-//        File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + projectName.getParentService());
-//        printResults(Runtime.getRuntime().exec("git add build.gradle", null, project));
-//        System.out.println("cd " + project.getAbsolutePath());
-//        System.out.println("git reset HEAD");
-//        System.out.println("git add build.gradle");
-//        System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
-//        System.out.println("git push origin " + RELEASE_BRANCH_NAME);
-//    }
+
+    private static void pushReleaseBranch(Application projectName) throws IOException {
+        File project = new File(TataPlayUtil.PROJECT_BASE_DIRECTORY + projectName.getParentService());
+        printResults(Runtime.getRuntime().exec("git add build.gradle", null, project));
+        System.out.println("cd " + project.getAbsolutePath());
+        System.out.println("git reset HEAD");
+        System.out.println("git add build.gradle");
+        System.out.println("git commit -m '" + RELEASE_BRANCH_NAME + ": Updated dependencies version'");
+        System.out.println("git push origin " + RELEASE_BRANCH_NAME);
+    }
 
 //    private static void pushReleaseBranch(Map<String, List<Application>> applicationMap) throws IOException {
 //        for (String parentApplication : applicationMap.keySet()) {
@@ -188,7 +159,7 @@ public class UpdateReleaseBranchWithJarsNew {
 //            System.out.println("git push origin " + RELEASE_BRANCH_NAME);
 //        }
 //    }
-//
+
 //    private static Map<String, List<Application>> getApplicationMap() {
 //        Map<String, List<Application>> applicationMap = new HashMap<>();
 //        for (Application application : impactedApplications) {
@@ -202,7 +173,7 @@ public class UpdateReleaseBranchWithJarsNew {
 //        }
 //        return applicationMap;
 //    }
-//
+
 //    private String getReleaseBranchName(Application projectName, Environment environment) {
 //        if (StringUtils.equals("ta-worker", projectName.getApplicationName())) {
 //            return Util.getBranchName(projectName, environment);
@@ -244,6 +215,7 @@ public class UpdateReleaseBranchWithJarsNew {
                 }
             }
 
+
             matcher = TataPlayUtil.pattern_less_used.matcher(text);
             if (matcher.find()) {
                 String initialPart = matcher.group(1);
@@ -254,7 +226,7 @@ public class UpdateReleaseBranchWithJarsNew {
                 String newDependencyVersion = jars.get(dependencyName);
                 boolean skipUpdate = prohibitedApplicationsToUpdate.containsKey(dependencyName) && prohibitedApplicationsToUpdate.get(dependencyName).contains(applicationName);
                 if (!skipUpdate && dependencyProvider.equals(TataPlayUtil.videoReadyGroup) && dependencies.contains(dependencyName) && !StringUtils.equals(newDependencyVersion, currentDependencyVersion)) {
-                    String newText = initialPart + "group: '" + TataPlayUtil.videoReadyGroup + "', name: '" + dependencyName + "', version: '" + newDependencyVersion + "'" + StringUtils.defaultString(remainingPart);
+                    String newText = initialPart + "'" + TataPlayUtil.videoReadyGroup + ":" + dependencyName + ":" + newDependencyVersion + "'" + StringUtils.defaultString(remainingPart);
                     buildDotGradleFileContent.append(newText).append("\n");
                     contentUpdated = true;
                     impactedApplications.add(application);

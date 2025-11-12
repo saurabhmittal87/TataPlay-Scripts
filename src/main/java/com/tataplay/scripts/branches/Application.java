@@ -5,16 +5,18 @@ public class Application {
     private String applicationName;
     private String productionBranchName;
     private String uatBranchName;
+    private String litUatBranchName;
     private String type;
 
     public Application() {
     }
 
-    public Application(String parentService, String applicationName, String productionBranchName, String uatBranchName, String type) {
+    public Application(String parentService, String applicationName, String productionBranchName, String uatBranchName, String litUatBranchName, String type) {
         this.parentService = parentService;
         this.applicationName = applicationName;
         this.productionBranchName = productionBranchName;
         this.uatBranchName = uatBranchName;
+        this.litUatBranchName = litUatBranchName;
         this.type = type;
     }
 
@@ -56,6 +58,14 @@ public class Application {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getLitUatBranchName() {
+        return litUatBranchName;
+    }
+
+    public void setLitUatBranchName(String litUatBranchName) {
+        this.litUatBranchName = litUatBranchName;
     }
 
     @Override

@@ -1,5 +1,5 @@
 package com.tataplay.scripts.branches.enums;
 
 public enum Environment {
-    PRODUCTION, UAT, DUMMY
+    PRODUCTION, UAT, UAT_LIT
 }

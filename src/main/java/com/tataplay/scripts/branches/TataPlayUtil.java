@@ -32,9 +32,9 @@ public class TataPlayUtil {
         while (projectScanner.hasNext()) {
             String[] text = projectScanner.nextLine().split(",");
             if (CollectionUtils.isEmpty(applicationsToConsider) || (!CollectionUtils.isEmpty(applicationsToConsider) && applicationsToConsider.contains(text[0]))) {
-                String branchName = getBranchName(environment, text[2], text[3]);
+                String branchName = getBranchName(environment, text[2], text[3], text[4]);
                 if (StringUtils.isNotBlank(branchName)) {
-                    Application application = new Application(text[0], text[1], text[2], text[3], text[4]);
+                    Application application = new Application(text[0], text[1], text[2], text[3], text[4], text[5]);
                     applications.add(application);
                     uniqueServices.put(application.getParentService(), application);
                 }
@@ -121,15 +121,12 @@ public class TataPlayUtil {
         return Objects.nonNull(applications) ? applications : new ArrayList<>();
     }
 
-    private static String getBranchName(Environment environment, String masterBranch, String uatBranch) {
-        switch (environment) {
-            case PRODUCTION:
-                return masterBranch;
-            case UAT:
-                return uatBranch;
-            default:
-                return null;
-        }
+    private static String getBranchName(Environment environment, String masterBranch, String uatBranch, String litUatBranchName) {
+        return switch (environment) {
+            case PRODUCTION -> masterBranch;
+            case UAT -> uatBranch;
+            case UAT_LIT -> litUatBranchName;
+        };
     }
 }
 
