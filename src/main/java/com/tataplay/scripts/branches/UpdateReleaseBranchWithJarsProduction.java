@@ -14,30 +14,31 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-13-11-2025-E";
+    private static final String RELEASE_BRANCH_NAME = "release-25-11-2025-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("common-pojo", "16.3.9");
-        jars.put("common-sql-domains", "14.7.4");
-        jars.put("common-db-tsf", "2.4.4");
-        jars.put("subscriber-db-util", "7.5.3");
-        jars.put("tatasky-connector-comviva", "2.1.5");
-//        jars.put("common-constants", "14.20.0");
-//        jars.put("homescreen-db-util", "9.9.8");
-//        jars.put("mm-domains", "8.3.6");
-//        jars.put("cache", "13.3.2");
-//        jars.put("content-db-util", "8.5.6");
-//        jars.put("third-party-utils", "2.7.4");
+        jars.put("common-pojo", "16.4.3");
+        jars.put("common-constants", "14.20.2");
+        jars.put("common-sql-domains", "14.7.7");
+        jars.put("common-event-domains", "1.9.5");
+        jars.put("subscriber-db-util", "7.5.8");
+        jars.put("homescreen-db-util", "10.0.2");
+        jars.put("cache", "13.3.4");
+        jars.put("content-db-util", "8.6.0");
+        jars.put("mm-domains", "8.3.8");
+        jars.put("tatasky-sms-connector", "8.7.4");
+        jars.put("pubnub-router-client", "1.4.5");
+//        jars.put("third-party-utils", "2.7.6");
+//        jars.put("module-config", "5.0.6");
+//        jars.put("common-db-tsf", "2.4.4");
+//        jars.put("tatasky-connector-comviva", "2.1.5");
 //        jars.put("partner-db-entities", "0.2.1");
-//        jars.put("pubnub-router-client", "1.4.1");
 //        jars.put("transaction-logger", "4.7.1");
-//        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
 //        jars.put("cache-manager", "1.5.1-UAT-SNAPSHOT");
-//        jars.put("common-event-domains", "0.3.5-UAT-SNAPSHOT");
 //        jars.put("androidStick-thirdParty", "4.3.4-UAT-SNAPSHOT");
 //        jars.put("search-client", "1.0.3-UAT-SNAPSHOT");
 //        jars.put("content-cache-utils", "5.4.2");
@@ -45,7 +46,6 @@ public class UpdateReleaseBranchWithJarsProduction {
 //        jars.put("tatasky-connector-comviva", "2.0.3");
 //        jars.put("search-utils", "3.2.1");
 //        jars.put("swagger-java-client-customer", "2.0.1");
-//        jars.put("common-event-domains", "1.7.7");
         dependencies.addAll(jars.keySet());
     }
 
