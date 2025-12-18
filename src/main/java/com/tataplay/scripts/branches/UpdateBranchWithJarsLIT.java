@@ -22,7 +22,7 @@ public class UpdateBranchWithJarsLIT {
 
     static {
         jars.put("subscriber-db-util", "9.4.1-UAT-SNAPSHOT");
-//        jars.put("common-db-tsf", "5.3.6-UAT-SNAPSHOT");
+//        jars.put("common-db-tsf", "5.3.9-UAT-SNAPSHOT");
 //        jars.put("common-constants", "5.27.2-UAT-SNAPSHOT");
 //        jars.put("common-sql-domains", "7.0.6-UAT-SNAPSHOT");
 //        jars.put("mm-domains", "3.7.7-UAT-SNAPSHOT");
