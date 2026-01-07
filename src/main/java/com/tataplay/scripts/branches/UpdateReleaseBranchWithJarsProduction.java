@@ -14,22 +14,23 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-23-12-2025-E";
+    private static final String RELEASE_BRANCH_NAME = "release-30-12-2025-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("common-pojo", "16.5.6");
-        jars.put("common-constants", "14.21.1");
-        jars.put("common-sql-domains", "14.8.4");
-        jars.put("cache", "13.3.8");
-        jars.put("homescreen-db-util", "10.0.7");
-        jars.put("subscriber-db-util", "7.6.2");
-        jars.put("content-db-util", "8.6.3");
-        jars.put("mm-domains", "8.4.3");
-        jars.put("common-event-domains", "1.9.7");
+        jars.put("common-pojo", "16.6.1");
+        jars.put("common-sql-domains", "14.8.9");
+//        jars.put("common-constants", "14.21.3");
+//        jars.put("mm-domains", "8.4.4");
+//        jars.put("transaction-logger", "4.7.2");
+//        jars.put("cache", "13.3.8");
+//        jars.put("homescreen-db-util", "10.0.7");
+//        jars.put("subscriber-db-util", "7.6.2");
+//        jars.put("content-db-util", "8.6.3");
+//        jars.put("common-event-domains", "1.9.7");
 //        jars.put("common-db-tsf", "2.4.6");
 //        jars.put("third-party-utils", "2.7.8");
 //        jars.put("tatasky-sms-connector", "8.7.5");
@@ -37,7 +38,6 @@ public class UpdateReleaseBranchWithJarsProduction {
 //        jars.put("module-config", "5.0.6");
 //        jars.put("tatasky-connector-comviva", "2.1.5");
 //        jars.put("partner-db-entities", "0.2.1");
-//        jars.put("transaction-logger", "4.7.1");
 //        jars.put("cache-manager", "1.5.1-UAT-SNAPSHOT");
 //        jars.put("androidStick-thirdParty", "4.3.4-UAT-SNAPSHOT");
 //        jars.put("search-client", "1.0.3-UAT-SNAPSHOT");

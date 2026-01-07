@@ -18,12 +18,12 @@ public class TataPlayUtil {
     public static final String regex_less_used = "(.*)'(.*):(.*):(.*)'(.*)";
     public static final Pattern pattern_most_used = Pattern.compile(regex_most_used);
     public static final Pattern pattern_less_used = Pattern.compile(regex_less_used);
-    public static String PROJECT_BASE_DIRECTORY = "/home/saurabh/projects/tataplay/";
+    public static String PROJECT_BASE_DIRECTORY = "/home/saurabh-mittal/projects/tataplay/";
     public static String videoReadyGroup = "tv.videoready";
     public static Map<String, Application> uniqueServices = new HashMap<>();
 
     public static Map<String, Map<String, List<Application>>> fetchLatestDependencyMap(Environment environment, List<String> applicationsToConsider) throws Exception {
-        Scanner projectScanner = new Scanner(new File("/home/saurabh/Documents/projects.csv"));
+        Scanner projectScanner = new Scanner(new File("/home/saurabh-mittal/Documents/projects.csv"));
         Map<String, Map<String, List<Application>>> dependencyTree = new HashMap<>();
         if (projectScanner.hasNext()) {
             projectScanner.nextLine();
