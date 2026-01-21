@@ -15,16 +15,18 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
     private static final String RELEASE_BRANCH_NAME = "release-20-01-2026-E";
-    private static final List<String> applicationsToConsider = Arrays.asList("tpma-pack-management","I-SPY","ab-feature-processing-engine","it-recommendation-api","tpma-hs-fallback-service","tpma-playback-api","tpma-snackbar-service","tpma-thirdparty-data-consumer","Irdeto-data-consumer","third-party-services","search-connector","content-detail","digital-feed-services","apple-integration-service","amazon-prime-integration-service","dnd-integration-service","event-processor","event-listener","event-consumer","binge-mobile-config","binge-partner-analytics","action-data-provider","action-listener","binge-cache-service","binge-external-data","binge-scheduler-service","control-node","homescreen-client","homescreen-consumer","job-configurations","live-event-service","popular-content","savvy-probe-binge","third-party-connector","tiny-trail","videoqc-asset-push","videoqc-connector","content-subscriber-detail");
+    private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("third-party-utils", "2.7.11");
-        jars.put("third-party-utils-v2", "3.0.4");
+//        jars.put("subscriber-db-util", "7.6.3");
+//        jars.put("subscriber-db-util-v2", "8.0.1");
+//        jars.put("third-party-utils", "2.7.11");
+//        jars.put("third-party-utils-v2", "3.0.4");
         jars.put("mm-domains", "8.4.5");
-        jars.put("mm-domains-v2", "10.0.4");
+//        jars.put("mm-domains-v2", "10.0.5");
 //        jars.put("common-pojo-v2", "17.0.2");
 //        jars.put("common-sql-domains-v2", "15.0.5");
 //        jars.put("common-pojo", "16.6.2");
@@ -33,7 +35,6 @@ public class UpdateReleaseBranchWithJarsProduction {
 //        jars.put("transaction-logger", "4.7.2");
 //        jars.put("cache", "13.3.8");
 //        jars.put("homescreen-db-util", "10.0.7");
-//        jars.put("subscriber-db-util", "7.6.2");
 //        jars.put("content-db-util", "8.6.3");
 //        jars.put("common-event-domains", "1.9.7");
 //        jars.put("common-db-tsf", "2.4.6");

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class CreateReleaseBranches {
 
-    private static String applicationList = "subscriber-db-util";
+    private static String applicationList = "lit-mobile-common-bff,pubnub-router,sms-api,ta-client,temp-login-service,lit-subscription-service,savvy-probe,binge-ensemble,binge-kafka-event-listener,binge-ta-worker,cache-manager,partner-registration-engine";
     private static String releaseBranchName = "release-20-01-2026-E";
 
     public static void main(String... args) throws IOException {
