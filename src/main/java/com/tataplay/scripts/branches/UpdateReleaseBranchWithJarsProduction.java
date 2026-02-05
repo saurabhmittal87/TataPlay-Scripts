@@ -14,24 +14,25 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-20-01-2026-E";
+    private static final String RELEASE_BRANCH_NAME = "release-03-02-2026-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-//        jars.put("subscriber-db-util", "7.6.3");
-//        jars.put("subscriber-db-util-v2", "8.0.1");
+        jars.put("subscriber-db-util", "7.6.5");
+        jars.put("subscriber-db-util-v2", "8.0.3");
+        jars.put("common-pojo", "16.6.10");
+        jars.put("common-pojo-v2", "17.0.10");
+        jars.put("common-sql-domains", "14.9.5");
+        jars.put("common-sql-domains-v2", "15.0.11");
+//        jars.put("common-constants", "14.21.7");
+//        jars.put("common-constants-v2", "15.0.7");
 //        jars.put("third-party-utils", "2.7.11");
 //        jars.put("third-party-utils-v2", "3.0.4");
-        jars.put("mm-domains", "8.4.5");
+//        jars.put("mm-domains", "8.4.5");
 //        jars.put("mm-domains-v2", "10.0.5");
-//        jars.put("common-pojo-v2", "17.0.2");
-//        jars.put("common-sql-domains-v2", "15.0.5");
-//        jars.put("common-pojo", "16.6.2");
-//        jars.put("common-sql-domains", "14.9.0");
-//        jars.put("common-constants", "14.21.3");
 //        jars.put("transaction-logger", "4.7.2");
 //        jars.put("cache", "13.3.8");
 //        jars.put("homescreen-db-util", "10.0.7");
