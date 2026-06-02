@@ -21,24 +21,26 @@ public class UpdateBranchWithJarsUAT {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("common-sql-domains", "7.7.6-UAT-SNAPSHOT");
-        jars.put("common-sql-domains-v2", "8.5.2-UAT-SNAPSHOT");
-        jars.put("homescreen-db-util", "9.13.34-UAT-SNAPSHOT");
-        jars.put("homescreen-db-util-v2", "10.1.7-UAT-SNAPSHOT");
-        jars.put("cache", "3.5.7-UAT-SNAPSHOT");
-        jars.put("cache-v2", "14.1.1-UAT-SNAPSHOT");
-        jars.put("common-pojo", "9.1.2-UAT-SNAPSHOT");
-        jars.put("common-pojo-v2", "9.4.14-UAT-SNAPSHOT");
-        jars.put("common-constants", "6.0.15-UAT-SNAPSHOT");
-        jars.put("common-constants-v2", "6.2.4-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util", "9.13.38-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util-v2", "10.2.1-UAT-SNAPSHOT");
+        jars.put("content-db-util", "4.4.3-UAT-SNAPSHOT");
+        jars.put("content-db-util-v2", "5.1.1-UAT-SNAPSHOT");
+//        jars.put("cache", "3.6.0-UAT-SNAPSHOT");
+//        jars.put("cache-v2", "14.1.4-UAT-SNAPSHOT");
+//        jars.put("mm-domains", "3.9.0-UAT-SNAPSHOT");
+//        jars.put("mm-domains-v2", "4.1.3-UAT-SNAPSHOT");
+//        jars.put("common-event-domains", "0.5.6-UAT-SNAPSHOT");
+//        jars.put("common-event-domains-v2", "1.0.5-UAT-SNAPSHOT");
+//        jars.put("common-sql-domains", "7.7.6-UAT-SNAPSHOT");
+//        jars.put("common-sql-domains-v2", "8.5.2-UAT-SNAPSHOT");
+//        jars.put("common-pojo", "9.1.2-UAT-SNAPSHOT");
+//        jars.put("common-pojo-v2", "9.4.14-UAT-SNAPSHOT");
+//        jars.put("common-constants", "6.0.15-UAT-SNAPSHOT");
+//        jars.put("common-constants-v2", "6.2.4-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util", "9.6.2-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util-v2", "10.0.17-UAT-SNAPSHOT");
-//        jars.put("content-db-util", "4.4.0-UAT-SNAPSHOT");
-//        jars.put("content-db-util-v2", "5.0.8-UAT-SNAPSHOT");
 //        jars.put("common-db-tsf", "5.4.4-UAT-SNAPSHOT");
 //        jars.put("common-db-tsf-v2", "6.0.7-UAT-SNAPSHOT");
-//        jars.put("mm-domains", "3.8.7-UAT-SNAPSHOT");
-//        jars.put("mm-domains-v2", "4.0.9-UAT-SNAPSHOT");
 //        jars.put("third-party-utils", "0.7.5-UAT-SNAPSHOT");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
 //        jars.put("tatasky-sms-connector", "3.5.4-UAT-SNAPSHOT");
@@ -46,7 +48,6 @@ public class UpdateBranchWithJarsUAT {
 //        jars.put("partner-db-entities", "0.2.0");
 //        jars.put("pubnub-router-client", "1.3.3");
 //        jars.put("cache-manager", "1.5.1-UAT-SNAPSHOT");
-//        jars.put("common-event-domains", "0.3.5-UAT-SNAPSHOT");
 //        jars.put("androidStick-thirdParty", "4.3.4-UAT-SNAPSHOT");
 //        jars.put("search-client", "1.0.3-UAT-SNAPSHOT");
 //        jars.put("content-cache-utils", "5.4.2");
