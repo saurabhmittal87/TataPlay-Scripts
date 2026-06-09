@@ -21,24 +21,24 @@ public class UpdateBranchWithJarsUAT {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
+        jars.put("cache", "3.6.2-UAT-SNAPSHOT");
+        jars.put("cache-v2", "14.1.6-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util", "9.14.0-UAT-SNAPSHOT");
+        jars.put("homescreen-db-util-v2", "10.2.3-UAT-SNAPSHOT");
+        jars.put("common-constants", "6.0.19-UAT-SNAPSHOT");
+        jars.put("common-constants-v2", "6.2.7-UAT-SNAPSHOT");
+        jars.put("common-sql-domains", "7.7.19-UAT-SNAPSHOT");
+        jars.put("common-sql-domains-v2", "8.6.7-UAT-SNAPSHOT");
+        jars.put("common-pojo", "9.2.4-UAT-SNAPSHOT");
+        jars.put("common-pojo-v2", "9.5.5-UAT-SNAPSHOT");
 //        jars.put("mm-domains", "3.9.1-UAT-SNAPSHOT");
 //        jars.put("mm-domains-v2", "4.1.5-UAT-SNAPSHOT");
 //        jars.put("third-party-utils", "0.7.21-UAT-SNAPSHOT");
 //        jars.put("third-party-utils-v2", "1.0.7-UAT-SNAPSHOT");
-//        jars.put("homescreen-db-util", "9.13.38-UAT-SNAPSHOT");
-//        jars.put("homescreen-db-util-v2", "10.2.1-UAT-SNAPSHOT");
 //        jars.put("content-db-util", "4.4.3-UAT-SNAPSHOT");
 //        jars.put("content-db-util-v2", "5.1.1-UAT-SNAPSHOT");
-//        jars.put("cache", "3.6.0-UAT-SNAPSHOT");
-//        jars.put("cache-v2", "14.1.4-UAT-SNAPSHOT");
-//        jars.put("common-event-domains", "0.5.6-UAT-SNAPSHOT");
+//        jars.put("common-event-domains", "8.6.7-UAT-SNAPSHOT);
 //        jars.put("common-event-domains-v2", "1.0.5-UAT-SNAPSHOT");
-        jars.put("common-sql-domains", "7.7.17-UAT-SNAPSHOT");
-        jars.put("common-sql-domains-v2", "8.6.2-UAT-SNAPSHOT");
-//        jars.put("common-pojo", "9.2.0-UAT-SNAPSHOT");
-//        jars.put("common-pojo-v2", "9.5.0-UAT-SNAPSHOT");
-//        jars.put("common-constants", "6.0.15-UAT-SNAPSHOT");
-//        jars.put("common-constants-v2", "6.2.4-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util", "9.6.2-UAT-SNAPSHOT");
 //        jars.put("subscriber-db-util-v2", "10.0.17-UAT-SNAPSHOT");
 //        jars.put("common-db-tsf", "5.4.4-UAT-SNAPSHOT");

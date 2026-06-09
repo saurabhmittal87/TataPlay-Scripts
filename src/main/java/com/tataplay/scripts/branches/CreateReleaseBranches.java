@@ -5,8 +5,8 @@ import java.io.IOException;
 
 public class CreateReleaseBranches {
 
-    private static String applicationList = "search-connector,sms-api";
-    private static String releaseBranchName = "release-02-06-2026-E";
+    private static String applicationList = "data-consumer";
+    private static String releaseBranchName = "release-09-06-2026-E";
 
     public static void main(String... args) throws IOException {
         String[] applications = applicationList.split(",");
