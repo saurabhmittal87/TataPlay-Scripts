@@ -14,25 +14,31 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-07-07-2026-E";
+    private static final String RELEASE_BRANCH_NAME = "release-21-07-2026-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-//        jars.put("common-sql-domains", "14.11.9");
-//        jars.put("common-sql-domains-v2", "15.2.8");
+        jars.put("common-constants", "14.22.33");
+        jars.put("common-constants-v2", "15.2.14");
+        jars.put("common-pojo", "16.8.21");
+        jars.put("common-pojo-v2", "17.1.22");
+        jars.put("common-sql-domains", "14.11.14");
+        jars.put("common-sql-domains-v2", "15.3.1");
+        jars.put("pubnub-router-client", "1.5.2");
+        jars.put("pubnub-router-client-v2", "2.0.4");
+        jars.put("homescreen-db-util", "10.3.8");
+        jars.put("homescreen-db-util-v2", "11.1.6");
+        jars.put("subscriber-db-util", "7.7.8");
+        jars.put("subscriber-db-util-v2", "8.1.6");
+        jars.put("common-db-tsf", "2.5.2");
+        jars.put("common-db-tsf-v2", "4.1.5");
 //        jars.put("cache", "13.4.4");
 //        jars.put("cache-v2", "14.0.9");
-//        jars.put("homescreen-db-util", "11.3.4");
-        jars.put("homescreen-db-util-v2", "12.1.0");
-//        jars.put("common-constants", "14.22.25");
-//        jars.put("common-constants-v2", "15.2.9");
-//        jars.put("common-pojo", "16.8.15");
-//        jars.put("common-pojo-v2", "17.1.14");
 //        jars.put("content-db-util", "9.7.2");
-        jars.put("content-db-util-v2", "10.0.8");
+//        jars.put("content-db-util-v2", "10.0.8");
 //        jars.put("mm-domains", "8.4.9");
 //        jars.put("mm-domains-v2", "10.1.1");
 //        jars.put("common-event-domains", "1.9.9");
@@ -40,12 +46,6 @@ public class UpdateReleaseBranchWithJarsProduction {
 //        jars.put("content-db-util-v2", "8.6.3");
 //        jars.put("third-party-utils", "2.7.15");
 //        jars.put("third-party-utils-v2", "3.0.9");
-//        jars.put("subscriber-db-util", "7.7.3");
-//        jars.put("subscriber-db-util-v2", "8.1.0");
-//        jars.put("common-db-tsf", "2.4.8");
-//        jars.put("common-db-tsf-v2", "4.1.1");
-//        jars.put("pubnub-router-client", "1.4.9");
-//        jars.put("pubnub-router-client-v2", "2.0.2");
 //        jars.put("transaction-logger", "4.7.4");
 //        jars.put("transaction-logger-v2", "5.0.1");
 //        jars.put("tatasky-sms-connector", "8.7.5");
