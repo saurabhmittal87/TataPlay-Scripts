@@ -44,8 +44,8 @@ public class UpdateBranchWithJarsUAT {
 //        jars.put("common-db-tsf", "5.4.4-UAT-SNAPSHOT");
 //        jars.put("common-db-tsf-v2", "6.0.7-UAT-SNAPSHOT");
 //        jars.put("tatasky-connector-comviva", "2.1.0");
-        jars.put("tatasky-sms-connector", "3.7.2-UAT-SNAPSHOT");
-        jars.put("tatasky-sms-connector-v2", "4.0.4-UAT-SNAPSHOT");
+        jars.put("tatasky-sms-connector", "3.7.3-UAT-SNAPSHOT");
+        jars.put("tatasky-sms-connector-v2", "4.0.5-UAT-SNAPSHOT");
 //        jars.put("transaction-logger", "4.5.7");
 //        jars.put("partner-db-entities", "0.2.0");
 //        jars.put("pubnub-router-client", "1.3.3");
