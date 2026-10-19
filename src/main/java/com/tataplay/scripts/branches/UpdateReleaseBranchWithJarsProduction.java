@@ -21,18 +21,20 @@ public class UpdateReleaseBranchWithJarsProduction {
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("third-party-utils", "2.7.16");
-        jars.put("third-party-utils-v2", "3.1.0");
-        jars.put("mm-domains", "8.5.2");
-        jars.put("mm-domains-v2", "10.1.4");
-//        jars.put("cache", "13.5.5");
-//        jars.put("cache-v2", "14.1.6");
+        jars.put("cache", "13.5.6");
+        jars.put("cache-v2", "14.1.7");
+        jars.put("content-db-util", "8.7.7");
+        jars.put("content-db-util-v2", "9.1.3");
+        jars.put("hlomescreen-db-uti", "10.4.18");
+        jars.put("homescreen-db-util-v2", "11.3.9");
+//        jars.put("third-party-utils", "2.7.16");
+//        jars.put("third-party-utils-v2", "3.1.0");
+//        jars.put("mm-domains", "8.5.2");
+//        jars.put("mm-domains-v2", "10.1.4");
 //        jars.put("common-pojo", "16.9.3");
 //        jars.put("common-pojo-v2", "17.2.3");
 //        jars.put("common-sql-domains", "14.11.29");
 //        jars.put("common-sql-domains-v2", "15.4.2");
-//        jars.put("homescreen-db-util", "10.4.17");
-//        jars.put("homescreen-db-util-v2", "11.3.7");
 //        jars.put("common-constants", "14.22.49");
 //        jars.put("common-constants-v2", "15.2.30");
 //        jars.put("common-db-tsf", "2.5.4");
@@ -45,8 +47,6 @@ public class UpdateReleaseBranchWithJarsProduction {
 //        jars.put("tatasky-sms-connector-v2", "9.0.4");
 //        jars.put("module-config", "5.0.7");
 //        jars.put("module-config-v2", "6.0.2");
-//        jars.put("content-db-util", "8.7.6");
-//        jars.put("content-db-util-v2", "9.1.2");
 //        jars.put("pubnub-router-client", "1.5.2");
 //        jars.put("pubnub-router-client-v2", "2.0.4");
 //        jars.put("common-event-domains", "1.9.9");
