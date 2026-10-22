@@ -14,19 +14,19 @@ public class UpdateReleaseBranchWithJarsProduction {
     private static final List<String> dependencies = new ArrayList<>();
     private static final Set<Application> impactedApplications = new HashSet<>();
     private static final Environment environment = Environment.PRODUCTION;
-    private static final String RELEASE_BRANCH_NAME = "release-15-10-2026-E";
+    private static final String RELEASE_BRANCH_NAME = "release-22-10-2026-E";
     private static final List<String> applicationsToConsider = null;
     private static final Map<String, List<String>> prohibitedApplicationsToUpdate = Map.of("androidStick-thirdParty",
             List.of("rest-api"), "common-event-domains", Arrays.asList("event-listener", "event-processor"),
             "tatasky-sms-connector", List.of("cms-ui"), "mm-domains", List.of("clean-up-utility"));
 
     static {
-        jars.put("cache", "13.5.6");
-        jars.put("cache-v2", "14.1.7");
-        jars.put("content-db-util", "8.7.7");
-        jars.put("content-db-util-v2", "9.1.3");
-        jars.put("hlomescreen-db-uti", "10.4.18");
-        jars.put("homescreen-db-util-v2", "11.3.9");
+//        jars.put("cache", "13.5.6");
+//        jars.put("cache-v2", "14.1.7");
+//        jars.put("content-db-util", "8.7.7");
+//        jars.put("content-db-util-v2", "9.1.3");
+        jars.put("homescreen-db-util", "10.4.18");
+//        jars.put("homescreen-db-util-v2", "11.3.9");
 //        jars.put("third-party-utils", "2.7.16");
 //        jars.put("third-party-utils-v2", "3.1.0");
 //        jars.put("mm-domains", "8.5.2");

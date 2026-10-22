@@ -31,8 +31,8 @@ public class UpdateBranchWithJarsUAT {
 //        jars.put("homescreen-db-util-v2", "10.6.10-UAT-SNAPSHOT");
 //        jars.put("content-db-util", "4.4.6-UAT-SNAPSHOT");
 //        jars.put("content-db-util-v2", "5.1.4-UAT-SNAPSHOT");
-        jars.put("common-constants", "6.2.23-UAT-SNAPSHOT");
-        jars.put("common-constants-v2", "6.4.22-UAT-SNAPSHOT");
+        jars.put("common-constants", "6.2.26-UAT-SNAPSHOT");
+        jars.put("common-constants-v2", "6.4.26-UAT-SNAPSHOT");
 //        jars.put("mm-domains", "3.9.1-UAT-SNAPSHOT");
 //        jars.put("mm-domains-v2", "4.1.5-UAT-SNAPSHOT");
 //        jars.put("third-party-utils", "0.7.21-UAT-SNAPSHOT");
