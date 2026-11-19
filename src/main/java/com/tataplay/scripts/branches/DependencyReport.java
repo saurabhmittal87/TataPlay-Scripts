@@ -14,7 +14,7 @@ public class DependencyReport {
     }
 
     public void printDependencyReport() throws Exception {
-        Map<String, Map<String, List<Application>>> dependencyTree = TataPlayUtil.fetchLatestDependencyMap(Environment.UAT, null);
+        Map<String, Map<String, List<Application>>> dependencyTree = TataPlayUtil.fetchLatestDependencyMap(Environment.PRODUCTION, null);
         printResults(dependencyTree);
     }
 
